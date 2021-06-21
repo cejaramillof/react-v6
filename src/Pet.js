@@ -8,7 +8,6 @@ export default function Pet({ name, animal, breed }) {
     React.createElement("h2", {}, breed),
   ]);
 }
-*/
 
 const Pet = (props) => {
   return (
@@ -17,6 +16,30 @@ const Pet = (props) => {
       <h2>{props.animal}</h2>
       <h2>{props.breed}</h2>
     </div>
+  );
+};
+
+export default Pet;
+*/
+
+const Pet = (props) => {
+  const { name, animal, breed, images, location, id } = props;
+
+  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  if (images.length) {
+    hero = images[0];
+  }
+
+  return (
+    <a href={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={hero} alt={name} />
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>{`${animal} — ${breed} — ${location}`}</h2>
+      </div>
+    </a>
   );
 };
 
